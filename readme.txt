@@ -16,13 +16,13 @@ WP Internal Links Lite lets you create Internal Links that Google *LOVES* among 
 
 You can quickly and easily create internal Linking Structures **over which you have absolute control**:
 
-1. Choose the introductory text that will be placed before the links, like “For more information, visit…”
+1. Choose the introductory text that will be placed before the links, like "For more information, visit..."
 
 2. Place the links at the top or the bottom of your posts. Thus, they are *high valued in-content links*.
 
 3. Be Penguin-safe, and *choose the specific anchor text you want to use to link to each post*. You can vary it as much as you want!
 
-4. Have your posts and pages point to one another, creating "silo" rings… It can be done in less than one minute!
+4. Have your posts and pages point to one another, creating "silo" rings... It can be done in less than one minute!
 
 5. Conveniently access all existing structures, and review them. Never again forget what post links to what others, never again have to edit each of your existing links manually!
 
