@@ -1,14 +1,14 @@
-=== WP Internal Links Lite ===
+=== No Sweat WP Internal Links Lite ===
 Contributors: MikelP
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VBJ6V9HWUMQVL
-Tags: wp internal links, wp internal links lite, internal links, autolinks, automatic links, interlinks, interlinking
+Tags: no sweat wp internal links, wp internal links, internal links, autolinks, automatic links, interlinks, interlinking, wordpress silo
 Requires at least: 3.2
-Tested up to: 3.5
+Tested up to: 3.9.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-WP Internal Links Lite allows you to easily create powerful internal linking structures and improve your on-site SEO with a few clicks of a button.
+No Sweat WP Internal Links Lite allows you to easily create powerful internal linking structures and improve your on-site SEO with a few clicks of a button.
 
 == Description ==
 
@@ -38,13 +38,13 @@ NOTE: This free Lite version is fully functional, but comes with two limitations
 
 2. You can't *edit structures you have created*, in the Lite version you will have to delete and re-create them if you want to change any values.
 
-If you want to unleash the full potential of the plugin, you can do it by checking the PRO version of [WP Internal Links](http://wpinternallinks.com/?utm_source=wordpress-org&utm_medium=description&utm_campaign=salespage "WP Internal Links")
+If you want to unleash the full potential of the plugin, you can do it by checking the PRO version of [WP Internal Links](http://nosweatplugins.com/no-sweat-wp-internal-links/?utm_source=wordpress-org&utm_medium=description&utm_campaign=salespage "WP Internal Links")
 
 == Installation ==
 
 1. Install the plugin by either:
 
-    a) Uploading `wp-inter-links-lite.zip` to the `/wp-content/plugins/` directory of yur site via FTP.
+    a) Uploading the ZIP file to the `/wp-content/plugins/` directory of yur site via FTP.
 
     b) Using the built-in "Add new" functionality in the Wordpress "Plugins" admin menu, searching for "WP Internal Links Lite", and clicking on "install" on its listing.
 
@@ -67,6 +67,14 @@ Not with the Lite version, but of course you can do it in the full-fledged "PRO"
 1. Structure creation panel
 
 == Changelog ==
+
+= 2.2 =
+
+* The plugin now supports custom post types
+* Usability improvements made to make possible sources and destinations more manageable
+* Now each structure and each link can have its own introductory text
+* Bug solved - the plugin failed when the WP tables used a prefix other than the default wp_
+* Bug solved - got rid of all jQuery errors
 
 = 1.0.4 =
 * Improved integration method of JS scripts for better standards compliance.

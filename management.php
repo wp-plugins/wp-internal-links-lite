@@ -148,7 +148,7 @@ echo "  <h3>" . __('List of Link Structures:', 'inl') . "</h3>";
 
                     <span class='edit'>
 
-                    <a href="javascript:void(0);" title="Edit" onclick="editform('<?=$data[id]?>');">Edit</a> 
+                    <a href="javascript:void(0);" title="Edit" onclick="editform('<?php echo $data[id]?>');">Edit</a> 
 
                     | </span>
 
@@ -156,7 +156,7 @@ echo "  <h3>" . __('List of Link Structures:', 'inl') . "</h3>";
 
                     <span class='delete'>
 
-                    <a href="javascript:void(0);" title="delete" onclick="deleteform('<?=$data[id]?>');">Delete</a> 
+                    <a href="javascript:void(0);" title="delete" onclick="deleteform('<?php echo $data[id]?>');">Delete</a> 
 
                     | </span>
 

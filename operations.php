@@ -33,6 +33,7 @@ function link_structures_operations($action,$data)
                     $target1 = $data['target1_1'];
                   }
                 $anchor_text1 = $data['anchortext1_'.$i];
+                $Introductorytext1 = $data['Introductorytext1_'.$i];
                 $target2 = 0;
                 $anchor_text2 = '';
                  if($inl_type!='Hub' && $inl_type!='Ring'  ){
@@ -41,7 +42,7 @@ function link_structures_operations($action,$data)
              
                 }
                 $sql = "INSERT INTO $wpdb->inl_link_struct_to_links (source,target1,target2,anchor_text1,anchor_text2,link_struct_id,
-               create_date,created_by,mod_date) VALUES ($source,$target1,$target2,'$anchor_text1', '$anchor_text2', $id,'$curdate','$modby','$curdate')";
+               create_date,created_by,mod_date,Introductory_text1) VALUES ($source,$target1,$target2,'$anchor_text1', '$anchor_text2', $id,'$curdate','$modby','$curdate','$Introductorytext1')";
                
                 $wpdb->query($sql);
 		      
@@ -71,6 +72,7 @@ function link_structures_operations($action,$data)
                   }
                 
                 $anchor_text1 = $data['anchortext1_'.$i];
+                 $Introductorytext1 = $data['Introductorytext1_'.$i];
                 $target2 = 0;
                 $anchor_text2 = '';
                 if($inl_type!='Hub' && $inl_type!='Ring'  ){
@@ -80,7 +82,7 @@ function link_structures_operations($action,$data)
              
                 }
                 $sql = "INSERT INTO $wpdb->inl_link_struct_to_links (source,target1,target2,anchor_text1,anchor_text2,link_struct_id,
-               create_date,created_by,mod_date) VALUES ($source,$target1,$target2,'$anchor_text1', '$anchor_text2', $link_struct_id,'$curdate','$modby','$curdate')";
+               create_date,created_by,mod_date,Introductory_text1) VALUES ($source,$target1,$target2,'$anchor_text1', '$anchor_text2', $link_struct_id,'$curdate','$modby','$curdate','$Introductorytext1')";
                
                 $wpdb->query($sql);
 		      
