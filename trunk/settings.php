@@ -1,8 +1,11 @@
 <?php
-
 $updated = '';
-$posturl = home_url('/wp-admin/admin.php?page=in_links_settings');
-
+$posturl = '';
+$inl_options = get_option(INLPLN_SETTINGS);
+if(!isset($inl_options['inl_pos_type'])){
+    $inl_options['inl_pos_type'] = array('post','page');
+    update_option(INLPLN_SETTINGS,$inl_options); 
+}
 if(isset($_POST) && $_POST['Submit']=='Save'){
 update_option(INLPLN_SETTINGS,$_POST);  
 $updated = '<div class="updated"><p><strong>Settings Saved</strong></p></div>'; 
@@ -63,6 +66,30 @@ if(isset($inl_options['inl_pos_top']) && $inl_options['inl_pos_top']=='top' ){
                     <input type="radio"   id="inl_pos_top" name="inl_pos_top" value="bottom" <?php echo $botselected?>/> Bottom
                  </td>
             </tr>
+               <tr valign="top">
+                <th scope="row"><label for="name"><?php echo __('Types of Posts to be Listed', 'inl'); ?><span style="color: red;">*</span></label>
+                </th>
+                <td>
+                <?php 
+$post_types=get_post_types('','names'); 
+$inl_post_types = $inl_options['inl_pos_type'];
+
+foreach ($post_types as $post_type ) {
+  if($post_type!='attachment' && $post_type!='revision' && $post_type!='nav_menu_item'){  
+  $selected =  '';
+       
+  if(in_array($post_type,$inl_post_types)) {
+     $selected =  'checked="checked"';  
+  } 
+  echo '<input type="checkbox" id="inl_pos_type[]" name="inl_pos_type[]" value="'.$post_type.'"  '.$selected.'/> '.$post_type.'<br/>';
+  }
+}
+?>
+                    
+                    
+                 </td>
+            </tr>
+            
 
         </p>
         </table>
@@ -83,30 +110,19 @@ if(isset($inl_options['inl_pos_top']) && $inl_options['inl_pos_top']=='top' ){
 </div>
 <script>
 function validateinlsettings(value){
+    var numberOfChecked = jQuery('input:checkbox:checked').length;
 	var validate = true;
-	if(value=="Test"){
-	if(document.getElementById("inl_key").value==''){
-           alert('License Key should not be empty');
+    
+    if(numberOfChecked==0){
+         alert('At least one post type needs to be selected');
+         window.location.replace("");
         return false;
-        }else{
-        	return true;
-        }
-        	
-	}
-     
-     
-      if(document.getElementById("inl_key").value==''){
-           alert('License Key should not be empty');
-        return false;
-        }
+    }
     if(document.getElementById("inl_text_link1").value==''){
            alert('Introductory Text for link1 should not be empty');
         return false;
         }
-      if(document.getElementById("inl_text_link2").value==''){
-           alert('Introductory Text for link2 should not be empty');
-        return false;
-        }
+     
         return validate;
     }
   

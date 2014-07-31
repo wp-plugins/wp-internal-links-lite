@@ -1,5 +1,5 @@
 <?php
-function vm_reservation_system_create_tables()
+function inlpln_lite_create_tables()
 { global $wpdb;
     if ($wpdb->get_var("SHOW TABLES LIKE '$wpdb->inl_link_structures'") != $wpdb->inl_link_structures)
     {
@@ -32,5 +32,11 @@ ENGINE = InnoDB;";
 ENGINE = InnoDB;";
         mysql_query($sql);
     }
+    if ($wpdb->get_var("SHOW TABLES LIKE '$wpdb->inl_link_struct_to_links'") == 'inl_link_struct_to_links')
+    {
+    $sql = "ALTER TABLE inl_link_struct_to_links ADD COLUMN `Introductory_text1` VARCHAR(200) NULL ";
+    mysql_query($sql);
+  }
+  
   
 }

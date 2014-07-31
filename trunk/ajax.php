@@ -3,7 +3,9 @@
                 </th>
                 <td>
                     <select name="nofnodes" id="nofnodes" onchange="getblocks(this.value,this.id);" onclick="getoldblock(this.value,this.id)" style="width: 46px !important;">
-                   <?php if($inl_type=='Star'){
+                   <?php 
+                   
+                   if($inl_type=='Star'){
                     if($nodes<4){
                         $nodes =4;
                     }
@@ -36,7 +38,6 @@
 
  $totposts = getinllinks($operation);
 
-        
 
         
 
@@ -173,6 +174,21 @@
                 <td>
 
                    <input type="text" name="anchortext1_<?php echo $i?>" id="anchortext1_<?php echo $i?>" value="<?php if(isset($inlfinaldata[$i]['anchor_text1']) && $inlfinaldata[$i]['anchor_text1']!='') echo $inlfinaldata[$i]['anchor_text1'];?>"/>
+
+                   
+
+                </td>
+
+                </tr>
+                <tr>
+
+                <td><label for="name"><?php echo __('Introductory Text', 'inl'); ?><span style="color: red;">*</span></label>
+
+                </td>
+
+                <td>
+
+                   <input type="text" name="Introductorytext1_<?php echo $i?>" id="Introductorytext1_<?php echo $i?>" value="<?php echo $introductorytext;?>"/>
 
                    
 

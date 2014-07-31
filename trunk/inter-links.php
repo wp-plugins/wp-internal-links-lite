@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: WP Internal Links Lite
-Plugin URI: http://wpinternallinks.com/?utm_source=plugin&utm_medium=description&utm_campaign=salespage
-Description: WP Internal Links allows you to easily create (and change on the fly) powerful internal linking structures within your site, that both Google and your visitors love.
-Version: 1.0.4
-Author: Mikel Perez & Tony Shepherd
-Author URI:  http://wpinternallinks.com/?utm_source=plugin&utm_medium=description&utm_campaign=salespage
+Plugin Name: No Sweat WP Internal Links Lite
+Plugin URI: http://nosweatplugins.com/no-sweat-wp-internal-links/?utm_source=plugin&utm_medium=link&utm_campaign=description
+Description: No Sweat WP Internal Links allows you to easily create (and change on the fly) powerful internal linking structures within your site, that both Google and your visitors love.
+Version: 2.2
+Author: Mikel Perez, Inaki Ramirez & Tony Shepherd
+Author URI:  http://nosweatplugins.com/no-sweat-wp-internal-links/?utm_source=plugin&utm_medium=link&utm_campaign=description
 */
 
 define( INLPLN1, plugins_url('/', __FILE__) );
@@ -13,11 +13,13 @@ define( INLPLN_SETTINGS, 'inl_settings' );
 
 $wpdb->inl_link_structures = 'inl_link_structures';
 $wpdb->inl_link_struct_to_links = 'inl_link_struct_to_links';
+
 register_activation_hook(__FILE__,'il_pln_activation');
+
 add_action( 'admin_menu', 'adminMenuNL' );
 
 function il_pln_activation(){
-vm_reservation_system_create_tables();
+inlpln_lite_create_tables();
 }
 function inlpln_lite_scripts_method() {
   	wp_enqueue_script(
@@ -54,7 +56,7 @@ add_filter('the_content', 'add_inl_post_content',-10000);
 require_once('sql-scripts.php');
 function adminMenuNL() {
 
-	add_menu_page(__('WP Internal Links Lite','menu-test'), __('WP Internal Links Lite','menu-test'), 'manage_options', 'in_links', 'in_links_intro' ,INLPLN1.'images/favicon.png');
+	add_menu_page(__('No Sweat WP Internal Links','menu-test'), __('No Sweat WP Internal Links','menu-test'), 'manage_options', 'in_links', 'in_links_intro' ,INLPLN1.'images/favicon.png');
     add_submenu_page('in_links', __('General Settings','menu-test'), __('General Settings','menu-test'), 'manage_options', 'in_links_settings', 'in_links_settings');
 
    
@@ -97,7 +99,11 @@ function get_structure_callback() {
     $operation = $_POST['operation'];
     $structid   =  intval($_POST['id']);
 	$nodes = intval( $_POST['nodes'] );
-    
+     $inl_options = get_option(INLPLN_SETTINGS);
+  
+     $introductorytext = $inl_options['inl_text_link1'];
+   
+                  
     require_once('ajax.php');
 
 	die(); // this is required to return a proper result
@@ -108,9 +114,7 @@ function get_inl_content($inlpostid){
         return '';
     }else{
         $inl_options = get_option(INLPLN_SETTINGS);
-        $intro_text1 = $inl_options['inl_text_link1'];
-         $intro_text2 = $inl_options['inl_text_link2'];
-        $html = '';
+          $html = '';
         $data['source'] = $inlpostid;
       $inldata =  link_structures_operations('getinlpost',$data);
       $homepage = get_option('home');
@@ -119,6 +123,10 @@ function get_inl_content($inlpostid){
         for($i=0;$i<count($inldata);$i++){
             $target1 = $inldata[$i]['target1'];
             $target2 = $inldata[$i]['target2'];
+           $intro_text1 = $inldata[$i]['Introductory_text1']; 
+           if($intro_text1==''){
+              $intro_text1 = $inl_options['inl_text_link1'];
+           }
             if($inldata[$i]['anchor_text1']!=''){
                 if($target1!=1000000000)
                 $html.=''.$intro_text1.'  <a href="'.get_permalink( $target1 ).'">'.$inldata[$i]['anchor_text1'].'</a>.&nbsp; ';
@@ -135,28 +143,39 @@ function get_inl_content($inlpostid){
     }
 }
 function getinllinks($operation){
-     global $wpdb;
- 
-        $sql = "SELECT ID,post_title FROM  wp_posts WHERE post_status='publish' AND post_type='page' ORDER BY  ID DESC ";
+    global $wpdb;
+ $inl_options = get_option(INLPLN_SETTINGS);
+ $inl_post_types = $inl_options['inl_pos_type'];
+  $totposts = array();
+ for($i=0;$i<count($inl_post_types);$i++){
+    $sql = "SELECT ID,post_title FROM  ".$wpdb->prefix."posts WHERE post_status='publish' AND post_type='".$inl_post_types[$i]."' ORDER BY  ID DESC ";
 $allposts = $wpdb->get_results($sql) ;
-        $totposts = array();
+       
        foreach($allposts as $allpost){
          $totpost['id'] = $allpost->ID;
-         $totpost['title'] = 'Page - '.$allpost->post_title;
+         $totpost['title'] = $allpost->post_title;
          $totposts[] = $totpost;
         }
-
- $sql = "SELECT ID,post_title FROM  wp_posts WHERE post_status='publish' AND post_type='post' ORDER BY  ID DESC ";
-$allposts = $wpdb->get_results($sql) ;
-        foreach($allposts as $allpost){
-         $totpost['id'] = $allpost->ID;
-         $totpost['title'] = 'Post - '.$allpost->post_title;
-         $totposts[] = $totpost;
-        }
+    
+ }
+//        
+//
+// $sql = "SELECT ID,post_title FROM  wp_posts WHERE post_status='publish' AND post_type='custompost1' ORDER BY  ID DESC ";
+//$allposts = $wpdb->get_results($sql) ;
+//        foreach($allposts as $allpost){
+//         $totpost['id'] = $allpost->ID;
+//         $totpost['title'] = 'Post - '.$allpost->post_title;
+//         $totposts[] = $totpost;
+//        }
+usort($totposts, 'cmp'); 
          $totpost['id'] = 1000000000;
          $totpost['title'] = 'Home Page';
          $totposts[] = $totpost;
       // 
+
+    
+
+ 
       $sql = "SELECT source FROM inl_link_struct_to_links GROUP BY source ORDER BY source DESC";
       if($operation=='edit'){
       $sql = "SELECT source FROM inl_link_struct_to_links 
@@ -202,4 +221,8 @@ GROUP BY source ORDER BY source DESC";
       }
      
         return $finalposts;
+}
+ function cmp($a, $b) {
+
+    return (strcmp(strtolower ($a['title']),strtolower ($b['title'])));
 }

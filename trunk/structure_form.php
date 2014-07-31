@@ -12,7 +12,7 @@ $nodes = '';
 
 $msg = '';
 
-$posturl = home_url('/wp-admin/admin.php?page=in_links_management');
+$posturl = site_url('/wp-admin/admin.php?page=in_links_management');
 
   require_once('header.php'); 
 
@@ -322,6 +322,21 @@ if(isset($_POST['inlaction']) && $_POST['inlaction']== 'edit'){
                 <td>
 
                    <input type="text" name="anchortext1_<?php echo $i?>" id="anchortext1_<?php echo $i?>" />
+
+                   
+
+                </td>
+
+                </tr>
+                <tr>
+
+                <td><label for="name"><?php echo __('Introductory Text for link1', 'inl'); ?><span style="color: red;">*</span></label>
+
+                </td>
+
+                <td>
+
+                   <input type="text" name="Introductorytext1_<?php echo $i?>" id="Introductorytext1_<?php echo $i?>" value=""/>
 
                    
 
@@ -1222,6 +1237,19 @@ function validateinl(){
            if(document.getElementById("anchortext1_"+k).value==''){
 
            alert('Anchor Text should not be empty');
+
+        return false;
+
+        }
+
+           
+
+       }
+        for(k=1;k<=jQuery('#nofnodes').val();k++){
+
+           if(document.getElementById("Introductorytext1_"+k).value==''){
+
+           alert('Introductory Text should not be empty');
 
         return false;
 
