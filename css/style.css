@@ -1,0 +1,47 @@
+.inlheader{
+  background-color: #ECECEC;
+    border: 1px solid;
+    float: left;
+    padding: 10px;
+    margin: 20px;
+}
+.promoheader{
+  background-color: #FFEEEE;
+    border: 1px solid #FF5555;
+    float: left;
+    padding: 5px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    color:#555555;
+    width: 685px;
+}
+.introtext{
+  background-color: #FFF;
+     float: left;
+    padding: 5px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    color:#555555;
+    width: 685px;
+}
+.inlheader img{
+  
+    padding:5px;
+}
+.linkstructe span{
+    padding-left:5px;
+}
+.linkstructe .inltype{
+    padding-left:25px; 
+}
+.dynamicstructure .inlgroup {
+    border: 1px solid black;
+}
+.inlcleardiv{
+    clear:both !important;
+    width: 100%;
+}
+.hint{
+    color: #B7B7B7;
+    font-style: italic;
+}
