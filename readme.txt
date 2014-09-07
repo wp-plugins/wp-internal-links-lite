@@ -3,8 +3,8 @@ Contributors: MikelP
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VBJ6V9HWUMQVL
 Tags: no sweat wp internal links, wp internal links, internal links, autolinks, automatic links, interlinks, interlinking, wordpress silo
 Requires at least: 3.2
-Tested up to: 3.9.1
-Stable tag: 2.2
+Tested up to: 4.0
+Stable tag: 2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,6 +13,10 @@ No Sweat WP Internal Links Lite allows you to easily create powerful internal li
 == Description ==
 
 WP Internal Links Lite lets you create Internal Links that Google *LOVES* among your posts and pages!
+
+You can see a demo of the plugin in action here:
+
+[youtube http://www.youtube.com/watch?v=RzV5uzjmXbQ]
 
 You can quickly and easily create internal Linking Structures **over which you have absolute control**:
 
@@ -28,17 +32,13 @@ You can quickly and easily create internal Linking Structures **over which you h
 
 6. No need to edit your theme's templates or mess up with coding, as links are added dynamically when the post is viewed.
 
-You can see a demo of the plugin in action here:
-
-[youtube http://www.youtube.com/watch?v=RzV5uzjmXbQ]
-
 NOTE: This free Lite version is fully functional, but comes with two limitations:
 
 1. You can *only create one of the four types of structures* available in the PRO version. You can create Rings, but not Hubs, Webs or Stars.
 
 2. You can't *edit structures you have created*, in the Lite version you will have to delete and re-create them if you want to change any values.
 
-If you want to unleash the full potential of the plugin, you can do it by checking the PRO version of [WP Internal Links](http://nosweatplugins.com/no-sweat-wp-internal-links/?utm_source=wordpress-org&utm_medium=description&utm_campaign=salespage "WP Internal Links")
+If you want to unleash the full potential of the plugin, you can do it by checking the PRO version of [WP Internal Links](http://nosweatplugins.com/get-no-sweat-wp-internal-links-pro/?utm_source=wordpress-org&utm_medium=description&utm_campaign=salespage "WP Internal Links")
 
 == Installation ==
 
@@ -67,6 +67,10 @@ Not with the Lite version, but of course you can do it in the full-fledged "PRO"
 1. Structure creation panel
 
 == Changelog ==
+
+= 2.2 =
+
+* Minor bug corrections
 
 = 2.2 =
 

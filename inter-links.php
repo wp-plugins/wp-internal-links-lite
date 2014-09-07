@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: No Sweat WP Internal Links Lite
-Plugin URI: http://nosweatplugins.com/no-sweat-wp-internal-links/?utm_source=plugin&utm_medium=link&utm_campaign=description
+Plugin URI: http://nosweatplugins.com/get-no-sweat-wp-internal-links-pro/?utm_source=plugin&utm_medium=link&utm_campaign=description
 Description: No Sweat WP Internal Links allows you to easily create (and change on the fly) powerful internal linking structures within your site, that both Google and your visitors love.
-Version: 2.2
+Version: 2.3
 Author: Mikel Perez, Inaki Ramirez & Tony Shepherd
-Author URI:  http://nosweatplugins.com/no-sweat-wp-internal-links/?utm_source=plugin&utm_medium=link&utm_campaign=description
+Author URI:  http://nosweatplugins.com/get-no-sweat-wp-internal-links-pro/?utm_source=plugin&utm_medium=link&utm_campaign=description
 */
 
 define( INLPLN1, plugins_url('/', __FILE__) );

@@ -6,7 +6,7 @@
 
 In order to learn how to use this plugin, we advise you to check the tutorials we published on our YouTube channel.<br /><br />
 
-Take in mind that they were created for the <a href="http://nosweatplugins.com/no-sweat-wp-internal-links/?utm_source=plugin&utm_medium=link&utm_campaign=intro" target="_blank">pro version</a>,
+Take in mind that they were created for the <a href="http://nosweatplugins.com/get-no-sweat-wp-internal-links-pro/?utm_source=plugin&utm_medium=link&utm_campaign=intro" target="_blank">pro version</a>,
 so you may see slight differences between what is displayed in the tutorials, and what you may see in the interface of the lite version.<br /><br />
 
 These are the videos that could help you the most:<br />
