@@ -3,7 +3,7 @@
 Plugin Name: No Sweat WP Internal Links Lite
 Plugin URI: http://nosweatplugins.com/get-no-sweat-wp-internal-links-pro/?utm_source=plugin&utm_medium=link&utm_campaign=description
 Description: No Sweat WP Internal Links allows you to easily create (and change on the fly) powerful internal linking structures within your site, that both Google and your visitors love.
-Version: 2.4
+Version: 2.4.1
 Author: Mikel Perez, Inaki Ramirez & Tony Shepherd
 Author URI:  http://nosweatplugins.com/get-no-sweat-wp-internal-links-pro/?utm_source=plugin&utm_medium=link&utm_campaign=description
 */
@@ -12,18 +12,22 @@ define( INLPLN1, plugins_url('/', __FILE__) );
 define( INLPLN_SETTINGS, 'inl_settings' );
 define( INLPLNDIR, dirname(__FILE__) );
 define( INLPLN_AFFILIATE_SETTINGS, 'INLPLN_AFFILIATE_SETTINGS' );
-$wpdb->inl_link_structures = 'inl_link_structures';
-$wpdb->inl_link_struct_to_links = 'inl_link_struct_to_links';
-
+define ( 'INLPLN_VERSION', '2.4.1' );
 register_activation_hook(__FILE__,'il_pln_activation');
 
 add_action( 'admin_menu', 'adminMenuNL' );
+add_action( 'init', 'inl_plugin_init' );
+function inl_plugin_init(){
+if ( is_admin() ) {
+   
+	if(INLPLN_VERSION=='2.4.1' && get_option('INLPLN_ACTIVATED')==''){
+		update_option( 'INLPLN_ACTIVATED', date('Y-m-d') );
+	}
+}
+}
 
 function il_pln_activation(){
-
 inlpln_lite_create_tables();
-update_option( 'INLPLN_ACTIVATED', date('Y-m-d') );
-inlpln_activate_affiliate();
 }
 function inlpln_lite_scripts_method() {
   	wp_enqueue_script(
