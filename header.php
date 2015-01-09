@@ -16,12 +16,12 @@
 
 <div class="promoheader"   style="float: left;">
 
-This is a free lite version of the full-fledged <a href="http://nosweatplugins.com/get-no-sweat-wp-internal-links-pro/?utm_source=plugin&utm_medium=link&utm_campaign=header" target="_blank">No Sweat WP Internal Links</a> plugin. As such, it has certain limitations:<br />
+This is a free lite version of the full-fledged <a href="<?php echo getinlAffiliateURL()?>" target="_blank">No Sweat WP Internal Links</a> plugin. As such, it has certain limitations:<br />
 <ul style="padding-left:5px ;">
 <ol>It only allows you to create one of the four types of structures (the Ring).</ol>
 <ol>You can create or delete Rings, but you cannot edit them.</ol>
 </ul>
-Learn about all the possibilities the pro version of the plugin offers, and unleash all of its power by upgrading to a pro license in our website at <a href="http://nosweatplugins.com/get-no-sweat-wp-internal-links-pro/?utm_source=plugin&utm_medium=link&utm_campaign=header" target="_blank">nosweatplugins.com.</a>
+Learn about all the possibilities the pro version of the plugin offers, and unleash all of its power by upgrading to a pro license in our website at <a href="<?php echo getinlAffiliateURL()?>" target="_blank">nosweatplugins.com.</a>
 
 </div>
 
