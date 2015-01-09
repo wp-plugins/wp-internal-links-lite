@@ -1,7 +1,7 @@
 <?php
 function inlpln_lite_create_tables()
 { global $wpdb;
-    if ($wpdb->get_var("SHOW TABLES LIKE '$wpdb->inl_link_structures'") != $wpdb->inl_link_structures)
+    if ($wpdb->get_var("SHOW TABLES LIKE 'inl_link_structures'") != 'inl_link_structures')
     {
         $sql = "CREATE  TABLE IF NOT EXISTS `inl_link_structures` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -13,9 +13,9 @@ function inlpln_lite_create_tables()
   `mod_by` VARCHAR(50) NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;";
-        mysql_query($sql);
+        $wpdb->query($sql);
     }
-     if ($wpdb->get_var("SHOW TABLES LIKE '$wpdb->inl_link_struct_to_links'") != $wpdb->inl_link_struct_to_links)
+     if ($wpdb->get_var("SHOW TABLES LIKE 'inl_link_struct_to_links'") != 'inl_link_struct_to_links')
     {
         $sql = "CREATE  TABLE IF NOT EXISTS `inl_link_struct_to_links` (
   `links_id` INT NOT NULL AUTO_INCREMENT,
@@ -30,12 +30,12 @@ ENGINE = InnoDB;";
   `mod_date` TIMESTAMP NULL ,
   PRIMARY KEY (`links_id`) )
 ENGINE = InnoDB;";
-        mysql_query($sql);
+        $wpdb->query($sql);
     }
-    if ($wpdb->get_var("SHOW TABLES LIKE '$wpdb->inl_link_struct_to_links'") == 'inl_link_struct_to_links')
+    if ($wpdb->get_var("SHOW TABLES LIKE 'inl_link_struct_to_links'") == 'inl_link_struct_to_links')
     {
     $sql = "ALTER TABLE inl_link_struct_to_links ADD COLUMN `Introductory_text1` VARCHAR(200) NULL ";
-    mysql_query($sql);
+    $wpdb->query($sql);
   }
   
   

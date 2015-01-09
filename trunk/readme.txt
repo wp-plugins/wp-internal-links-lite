@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: no sweat wp internal links, wp internal links, internal links, autolinks, automatic links, interlinks, interlinking, wordpress silo
 Requires at least: 3.2
 Tested up to: 4.1
-Stable tag: 2.4
+Stable tag: 2.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -69,6 +69,10 @@ Not with the Lite version, but of course you can do it in the full-fledged "PRO"
 1. Structure creation panel
 
 == Changelog ==
+
+= 2.4.1 =
+
+* Minor bug correction to the previous version
 
 = 2.4 =
 
