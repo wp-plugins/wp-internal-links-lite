@@ -3,12 +3,12 @@ Contributors: MikelP
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VBJ6V9HWUMQVL
 Tags: no sweat wp internal links, wp internal links, internal links, autolinks, automatic links, interlinks, interlinking, wordpress silo
 Requires at least: 3.2
-Tested up to: 4.0
-Stable tag: 2.3
+Tested up to: 4.1
+Stable tag: 2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-No Sweat WP Internal Links Lite allows you to easily create powerful internal linking structures and improve your on-site SEO with a few clicks of a button.
+No Sweat WP Internal Links Lite allows you to create siloes, powerful internal linking structures that improve your on-site SEO.
 
 == Description ==
 
@@ -37,6 +37,8 @@ NOTE: This free Lite version is fully functional, but comes with two limitations
 1. You can *only create one of the four types of structures* available in the PRO version. You can create Rings, but not Hubs, Webs or Stars.
 
 2. You can't *edit structures you have created*, in the Lite version you will have to delete and re-create them if you want to change any values.
+
+3. In the PRO version you can place the links anywhere you want using a shortcode, beyond the general "top of the post" or "bottom of the post" allowed by the Lite version
 
 If you want to unleash the full potential of the plugin, you can do it by checking the PRO version of [WP Internal Links](http://nosweatplugins.com/get-no-sweat-wp-internal-links-pro/?utm_source=wordpress-org&utm_medium=description&utm_campaign=salespage "WP Internal Links")
 
@@ -68,7 +70,11 @@ Not with the Lite version, but of course you can do it in the full-fledged "PRO"
 
 == Changelog ==
 
-= 2.2 =
+= 2.4 =
+
+* Tweaks for full compatibility with Wordpress 4.X
+
+= 2.3 =
 
 * Minor bug corrections
 

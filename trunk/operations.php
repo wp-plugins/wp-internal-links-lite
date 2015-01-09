@@ -146,3 +146,15 @@ function link_structures_operations($action,$data)
     
     
 }
+function getinlAffiliateURL(){
+	$affiliateid = get_option(INLPLN_AFFILIATE_SETTINGS);
+	$url = 'http://jvz5.com/c/';
+	if($affiliateid!=''){
+	$url.= $affiliateid;
+	$url.='/140554';
+	}else{
+	return 'http://nosweatplugins.com/get-no-sweat-wp-internal-links-pro/?utm_source=plugin&utm_medium=link&utm_campaign=header';
+	} 
+return $url;
+}
+

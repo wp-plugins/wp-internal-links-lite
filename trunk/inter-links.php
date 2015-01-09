@@ -3,14 +3,15 @@
 Plugin Name: No Sweat WP Internal Links Lite
 Plugin URI: http://nosweatplugins.com/get-no-sweat-wp-internal-links-pro/?utm_source=plugin&utm_medium=link&utm_campaign=description
 Description: No Sweat WP Internal Links allows you to easily create (and change on the fly) powerful internal linking structures within your site, that both Google and your visitors love.
-Version: 2.3
+Version: 2.4
 Author: Mikel Perez, Inaki Ramirez & Tony Shepherd
 Author URI:  http://nosweatplugins.com/get-no-sweat-wp-internal-links-pro/?utm_source=plugin&utm_medium=link&utm_campaign=description
 */
 
 define( INLPLN1, plugins_url('/', __FILE__) );
 define( INLPLN_SETTINGS, 'inl_settings' );
-
+define( INLPLNDIR, dirname(__FILE__) );
+define( INLPLN_AFFILIATE_SETTINGS, 'INLPLN_AFFILIATE_SETTINGS' );
 $wpdb->inl_link_structures = 'inl_link_structures';
 $wpdb->inl_link_struct_to_links = 'inl_link_struct_to_links';
 
@@ -19,7 +20,10 @@ register_activation_hook(__FILE__,'il_pln_activation');
 add_action( 'admin_menu', 'adminMenuNL' );
 
 function il_pln_activation(){
+
 inlpln_lite_create_tables();
+update_option( 'INLPLN_ACTIVATED', date('Y-m-d') );
+inlpln_activate_affiliate();
 }
 function inlpln_lite_scripts_method() {
   	wp_enqueue_script(
@@ -225,4 +229,118 @@ GROUP BY source ORDER BY source DESC";
  function cmp($a, $b) {
 
     return (strcmp(strtolower ($a['title']),strtolower ($b['title'])));
+}
+add_action('admin_notices', 'inlpln_notices');
+add_action('wp_ajax_inlpln_dismiss', 'inlpln_dismiss');
+function show_inlpln_promotion_msgs(){
+	$messages = array();
+
+if (false !== file_get_contents("http://nosweatplugins.com/messages_Internallinks.txt")) {
+$msgfile = fopen("http://nosweatplugins.com/messages_Internallinks.txt", "r") or die("Unable to open file!");
+//$msgfile = fopen(INLPLNDIR.'/lib/messages_internal_links.txt', "r") or die("Unable to open file!");
+// Output one line until end-of-file
+while(!feof($msgfile)) {
+//	echo fgets($msgfile);
+   $msg = json_decode(fgets($msgfile),true);
+ //  print_r($msg);
+ //  die;
+   $messages[] = $msg[0];
+}
+fclose($msgfile);
+}
+return $messages; 
+}
+function inlpln_notices()
+{   $messages = show_inlpln_promotion_msgs();
+//	echo '<pre>';
+//	print_r($messages);
+	$today = date('Y-m-d');
+	$activateddate = get_option('INLPLN_ACTIVATED');
+     $dismissedays = get_option('INLPLN_DISMISS');
+	 if($dismissedays!=''){
+	 	$dismissedays = explode(',',$dismissedays);
+	 }else{
+	 	$dismissedays = array();
+	 }
+	if(!empty($messages)){  
+		$showmsg = '';
+		$days = 'no';
+		$finaldate = '';
+	    for($i=0;$i<count($messages);$i++){
+			$msg = $messages[$i]; 
+	    	if($msg['days']==$today && !in_array(trim($msg['days']),$dismissedays)){
+			 $days = $msg['days'];
+			 $showmsg = $msg['msg'];
+			 break;	
+			 }
+	 		 
+		 }
+		 if($days=='no' && $showmsg==''){
+		 	$found =0;
+		 	for($i=0;$i<count($messages);$i++){
+		 	 	
+			 $msg = $messages[$i];
+			
+			 $isdate = date_parse($msg['days']);
+			 
+             if($isdate['error_count']!=0){
+			 $finaldate = date('Y-m-d', strtotime($activateddate." +".$msg['days']." days"));
+			//echo $finaldate.'<br/>';	 
+              if($today>=$finaldate){
+			   $days = $msg['days'];
+			   $showmsg = $msg['msg'];
+			 	
+			 } 
+			if($today<=$finaldate){
+			  
+			 	break;
+			 }
+	 		 
+             }
+		 	}
+		 }
+	
+	 if(!in_array(trim($days),$dismissedays) && $showmsg!='' && $days!='no'){
+	 		
+	 		echo '<style>.nsp_container{margin-top:10px;}.dismiss_il{float:right;cursor:pointer;font-weight: bold;}</style>'.$showmsg.'<div style="clear:both;"></div>';
+	 		?>	 		
+	 		<script type="text/javascript"><!--
+     	 		jQuery( ".dismiss_il" ).click(function() {
+     	 			jQuery( this).parent().fadeOut( "slow" );
+     	 			 jQuery.post('<?php echo NSMPCAJAXURL?>',
+
+     	 			        { action:'inlpln_dismiss',
+     	 			            days:jQuery( this).parent().attr("id")
+
+     	 			        },  function(data){
+										
+        	 			         });
+	 			
+	 			});
+			//-->
+			</script>
+	 		<?php 
+	 	
+	 }	     
+	  
+	}
+    
+}
+function inlpln_dismiss(){
+	$days = $_POST['days'].','.get_option('INLPLN_DISMISS');
+	update_option('INLPLN_DISMISS',$days);
+}
+function inlpln_activate_affiliate(){
+$af_code = get_option(INLPLN_AFFILIATE_SETTINGS);
+if($af_code==''){
+	if (false !== file_get_contents(INLPLNDIR.'/lib/affiliate.txt')) {
+		$msgfile = fopen(INLPLNDIR.'/lib/affiliate.txt', "r") or die("Unable to open file!");
+			while(!feof($msgfile)) {
+			 $af_code = fgets($msgfile);
+			}
+		fclose($msgfile);
+	}
+}
+	if($af_code!='')
+ 	update_option(INLPLN_AFFILIATE_SETTINGS,$af_code);
 }
