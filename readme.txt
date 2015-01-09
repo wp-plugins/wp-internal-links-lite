@@ -1,6 +1,6 @@
 === No Sweat WP Internal Links Lite ===
 Contributors: MikelP
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=VBJ6V9HWUMQVL
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GL35SNWRE5AUL
 Tags: no sweat wp internal links, wp internal links, internal links, autolinks, automatic links, interlinks, interlinking, wordpress silo
 Requires at least: 3.2
 Tested up to: 4.1
