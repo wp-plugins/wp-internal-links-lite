@@ -8,7 +8,7 @@ Stable tag: 2.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-No Sweat WP Internal Links Lite allows you to create siloes, powerful internal linking structures that improve your on-site SEO.
+No Sweat WP Internal Links Lite allows you to create silos, powerful internal linking structures that improve your on-site SEO.
 
 == Description ==
 
@@ -40,7 +40,7 @@ NOTE: This free Lite version is fully functional, but comes with two limitations
 
 3. In the PRO version you can place the links anywhere you want using a shortcode, beyond the general "top of the post" or "bottom of the post" allowed by the Lite version
 
-If you want to unleash the full potential of the plugin, you can do it by checking the PRO version of [WP Internal Links](http://nosweatplugins.com/get-no-sweat-wp-internal-links-pro/?utm_source=wordpress-org&utm_medium=description&utm_campaign=salespage "WP Internal Links")
+If you want to unleash the full potential of the plugin, you can do it by checking the PRO version of [No Sweat WP Internal Links](http://nosweatplugins.com/get-no-sweat-wp-internal-links-pro/?utm_source=wordpress-org&utm_medium=description&utm_campaign=salespage "WP Internal Links")
 
 == Installation ==
 
@@ -60,6 +60,8 @@ If you want to unleash the full potential of the plugin, you can do it by checki
 
 This is a limitation of the Lite version. If you upgrade to the full PRO version you will be able to create the four of them.
 
+You can access the PRO version of No Sweat WP Internal Links [here](http://nosweatplugins.com/get-no-sweat-wp-internal-links-pro/?utm_source=wordpress-org&utm_medium=description&utm_campaign=salespage "WP Internal Links")
+
 = Can I edit a structure I have created? =
 
 Not with the Lite version, but of course you can do it in the full-fledged "PRO" version.
@@ -69,6 +71,11 @@ Not with the Lite version, but of course you can do it in the full-fledged "PRO"
 1. Structure creation panel
 
 == Changelog ==
+
+= 2.4.2 =
+
+* Optimizations for WP 4.1
+* Added funtionality to show important messages to the admin
 
 = 2.4.1 =
 
