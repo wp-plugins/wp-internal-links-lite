@@ -3,7 +3,7 @@
 Plugin Name: No Sweat WP Internal Links Lite
 Plugin URI: http://nosweatplugins.com/get-no-sweat-wp-internal-links-pro/?utm_source=plugin&utm_medium=link&utm_campaign=description
 Description: No Sweat WP Internal Links allows you to easily create (and change on the fly) powerful internal linking structures within your site, that both Google and your visitors love.
-Version: 2.4.1
+Version: 2.4.2   
 Author: Mikel Perez, Inaki Ramirez & Tony Shepherd
 Author URI:  http://nosweatplugins.com/get-no-sweat-wp-internal-links-pro/?utm_source=plugin&utm_medium=link&utm_campaign=description
 */
@@ -12,7 +12,8 @@ define( INLPLN1, plugins_url('/', __FILE__) );
 define( INLPLN_SETTINGS, 'inl_settings' );
 define( INLPLNDIR, dirname(__FILE__) );
 define( INLPLN_AFFILIATE_SETTINGS, 'INLPLN_AFFILIATE_SETTINGS' );
-define ( 'INLPLN_VERSION', '2.4.1' );
+define ( 'INLPLN_VERSION', '2.4.2' );
+define('INLPLNAJAXURL', home_url( "/" ).'wp-admin/admin-ajax.php');
 register_activation_hook(__FILE__,'il_pln_activation');
 
 add_action( 'admin_menu', 'adminMenuNL' );
@@ -20,7 +21,7 @@ add_action( 'init', 'inl_plugin_init' );
 function inl_plugin_init(){
 if ( is_admin() ) {
    
-	if(INLPLN_VERSION=='2.4.1' && get_option('INLPLN_ACTIVATED')==''){
+	if(INLPLN_VERSION=='2.4.2' && get_option('INLPLN_ACTIVATED')==''){
 		update_option( 'INLPLN_ACTIVATED', date('Y-m-d') );
 	}
 }
@@ -311,7 +312,7 @@ function inlpln_notices()
 	 		<script type="text/javascript"><!--
      	 		jQuery( ".dismiss_il" ).click(function() {
      	 			jQuery( this).parent().fadeOut( "slow" );
-     	 			 jQuery.post('<?php echo NSMPCAJAXURL?>',
+     	 			 jQuery.post('<?php echo INLPLNAJAXURL?>',
 
      	 			        { action:'inlpln_dismiss',
      	 			            days:jQuery( this).parent().attr("id")
